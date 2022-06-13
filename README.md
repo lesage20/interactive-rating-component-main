@@ -25,7 +25,7 @@ Want some support on the challenge? [Join our Slack community](https://www.front
 
 ## Demo 
 
-- [Netlify](https://rating.netlify.app)
+- [Netlify](https://sage-rate.netlify.app)
 
 
 ## Submitting your solution
