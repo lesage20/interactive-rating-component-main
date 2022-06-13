@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.google.com/specimen/Overpass" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+  <style>
+    .submit:hover {
+      background-color: white !important;
+      color: hsl(25, 97%, 53%)
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-main  style="background-color: hsl(216, 12%, 8%);">
+        <v-container  fill-height>
+            <v-row justify="center">
+              <v-col lg="4" :md="submited ? 5:6" :sm="submited ? 6:8"  :cols="submited ? 10:12">
+                <v-card dark v-if="!submited" style="background-color: hsl(213, 19%, 18%);" class="white--text pt-4 rounded-xl">
+                  <v-toolbar  style="background-color: hsl(213, 19%, 18%);" flat> 
+                    <v-avatar color="grey darken-3" dark >
+                      <v-icon color="hsl(25, 97%, 53%)" dark>
+                        mdi-star
+                      </v-icon>
+                    </v-avatar>
+                  </v-toolbar>
+                    <v-card-title>
+                      <h3>
+                        How did we do?
+                      </h3>
+                    </v-card-title>
+                    <v-card-text >
+                      Please let us know how we did with your support request. All feedback is appreciated 
+                      to help us improve our offering!                    
+                    </v-card-text>
+                    <v-card-text>
+                      <v-row justify="space-around">
+                        <v-btn fab elevation="0" @click="rating = i" :color="rating == i ? 'hsl(25, 97%, 53%)':'grey darken-3'"  class="mx-2 " v-for="i in 5" :key="i">
+                            {{i}}
+                        </v-btn>
+                      </v-row>
+                    </v-card-text>
+                    <v-card-text>
+                      <v-btn class="submit" @click="submited = true"  height="50px" elevation="0"   color="hsl(25, 97%, 53%)" rounded block>
+                          submit
+                      </v-btn>
+                    </v-card-text>
+                </v-card>
+                <v-card style="background-color: hsl(213, 19%, 18%);" v-else dark class="rounded-xl my-5">
+                    <v-row  justify="center">
+                      <v-col cols="auto" class="text-center">
+                        <v-img width="150" contain  height="100" class="my-3" src="images/illustration-thank-you.svg"></v-img>
+                        <v-chip   class="rounded-xl ma-3 grey darken-3 orange--text">
+                          You selected  {{rating}} out of 5
+                        </v-chip>
+                      </v-col>
+                    </v-row>
+                     <div>
+                       <h2 class="text-center"  >Thank you!</h2>
+                     </div>
+                    <v-card-text class="text-center pa-4">
+                      We appreciate you taking the time to give a rating. If you ever need more support, 
+                      don’t hesitate to get in touch!                  
+                    </v-card-text>
+                </v-card> 
+              </v-col>
+            </v-row>
+
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: () => ({
+        rating: 0,
+        submited: false
+      })
+    })
+  </script>
+</body>
+</html>
