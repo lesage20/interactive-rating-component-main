@@ -42,7 +42,7 @@
                     </v-card-text>
                     <v-card-text>
                       <v-row justify='space-around'>
-                        <v-btn  elevation="0" fab :small="isMobile" @click="rating = i" :color="rating == i ? 'hsl(25, 97%, 53%)':'grey darken-3'"  class="mx- rounded-circle" v-for="i in 5" :key="i">
+                        <v-btn  elevation="0" fab :small="isMobile" @click="rating = i" :color="rating == i ? 'hsl(25, 97%, 53%)':'grey darken-3'"  class="rounded-circle" v-for="i in 5" :key="i">
                             {{i}}
                         </v-btn>
                       </v-row>
