@@ -41,14 +41,14 @@
                       to help us improve our offering!                    
                     </v-card-text>
                     <v-card-text>
-                      <v-row justify="space-between">
-                        <v-btn fab elevation="0" @click="rating = i" :color="rating == i ? 'hsl(25, 97%, 53%)':'grey darken-3'"  class="mx-2 " v-for="i in 5" :key="i">
+                      <v-row justify='space-around'>
+                        <v-btn  elevation="0" fab :small="isMobile" @click="rating = i" :color="rating == i ? 'hsl(25, 97%, 53%)':'grey darken-3'"  class="mx- rounded-circle" v-for="i in 5" :key="i">
                             {{i}}
                         </v-btn>
                       </v-row>
                     </v-card-text>
                     <v-card-text>
-                      <v-btn class="submit" @click="submited = true"  height="50px" elevation="0"   color="hsl(25, 97%, 53%)" rounded block>
+                      <v-btn class="submit" @click="submited = true"  large elevation="0"   color="hsl(25, 97%, 53%)" rounded block>
                           submit
                       </v-btn>
                     </v-card-text>
@@ -87,7 +87,12 @@
       data: () => ({
         rating: 0,
         submited: false
-      })
+      }),
+      computed: {
+        isMobile(){
+          return window.screen.width <= 375
+        }
+      }
     })
   </script>
 </body>
